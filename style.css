@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+:root {
+    --bg-color: #1a1a1a;
+    --card-bg: #222;
+    --text-main: #f0f0f0;
+    --text-sub: #aaa;
+    --border-color: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --slider-bg: #ccc;
+    --primary-color: #2196F3;
+}
+
+body.light-theme {
+    --bg-color: #f0f2f5;
+    --card-bg: #ffffff;
+    --text-main: #1a1a1a;
+    --text-sub: #555;
+    --border-color: #1a1a1a;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --slider-bg: #888;
+}
+
+* {
+    font-family: "SN Pro", sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 0;
+}
+.card {
+    background-color: var(--card-bg);
+    border: 2px solid var(--border-color);
+    box-shadow: 8px 8px 0 var(--shadow-color);
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.above-card {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    border-bottom: 2px solid var(--border-color);
+    background-color: var(--card-bg);
+    z-index: 101;
+    position: relative;
+}
+
+.control {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: auto;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: var(--slider-bg);
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--primary-color);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.card .card-content {
+    padding: 40px;
+    display: flex;
+    gap: 40px;
+}
+
+.card .card-content .profile {
+    flex: 0 0 200px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card .card-content .profile .profile-img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border: 2px solid var(--border-color);
+    margin-bottom: 20px;
+    box-shadow: 4px 4px 0 var(--shadow-color);
+}
+
+.card .card-content .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card .card-content .content .tagline {
+    font-size: 1.1rem;
+    color: #aaa;
+    margin-bottom: 20px;
+    font-style: italic;
+    border-bottom: var(--text-sub) 1px solid;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.card .card-content .content .bio {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.card .card-content .content .social-link {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.card .card-content .content .social-link a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid var(--border-color);
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.card .card-content .content .social-link a:hover {
+    background-color: var(--text-main);
+    color: var(--card-bg);
+}
